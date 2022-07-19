@@ -3,8 +3,8 @@ provider "aws" {
     region     = "us-east-1"
 }
 # Create S3 BUCKET
-resource "aws_s3_bucket" "terraform-aw-team3" {
-  bucket = "terraform-aw-team3"
+resource "aws_s3_bucket" "terraform-project-22" {
+  bucket = "terraform-project-22"
   acl    = "public-read-write"
   policy = jsonencode({
 "Version": "2012-10-17",
@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "terraform-aw-team3" {
    {
    "Action": "s3:GetObject",
    "Effect": "Allow",
-   "Resource": "arn:aws:s3:::terraform-aw-team3/*",
+   "Resource": "arn:aws:s3:::terraform-project-22/*",
    "Principal": "*"
    }
   ],
@@ -21,56 +21,56 @@ resource "aws_s3_bucket" "terraform-aw-team3" {
 
 ## PATH FOR RESOURCES
 resource "aws_s3_bucket_object" "image" {
-  bucket = "terraform-aw-team3"
+  bucket = "terraform-project-22"
   key    = "image.jpg"
   source = "/root/aws_project/web-2/image.jpg"
   depends_on = [
-    aws_s3_bucket.terraform-aw-team3
+    aws_s3_bucket.terraform-project-22
   ]
 }
 resource "aws_s3_bucket_object" "videos" {
-  bucket = "terraform-aw-team3"
+  bucket = "terraform-project-22"
   key    = "earth.gif"
   source = "/root/aws_project/web-2/earth.gif"
   depends_on = [
-    aws_s3_bucket.terraform-aw-team3
+    aws_s3_bucket.terraform-project-22
   ]
 }
 
 resource "aws_s3_bucket_object" "sdefault" {
-  bucket = "terraform-aw-team3"
+  bucket = "terraform-project-22"
   key    = "index-default.jpg"
   source = "/root/aws_project/web-2/index-default.jpg"
   depends_on = [
-    aws_s3_bucket.terraform-aw-team3
+    aws_s3_bucket.terraform-project-22
   ]
 }
 resource "aws_s3_bucket_object" "index" {
-  bucket = "terraform-aw-team3"
+  bucket = "terraform-project-22"
   key    = "index-default.html"
   source = "/root/aws_project/web-2/index-default.html"
   depends_on = [
-    aws_s3_bucket.terraform-aw-team3
+    aws_s3_bucket.terraform-project-22
   ]
 }
 resource "aws_s3_bucket_object" "default_images" {
-  bucket = "terraform-aw-team3"
+  bucket = "terraform-project-22"
   key    = "image.html"
   source = "/root/aws_project/web-2/image.html"
   depends_on = [
-    aws_s3_bucket.terraform-aw-team3
+    aws_s3_bucket.terraform-project-22
   ]
 }
 resource "aws_s3_bucket_object" "default_gif" {
-  bucket = "terraform-aw-team3"
+  bucket = "terraform-project-22"
   key    = "earth.html"
   source = "/root/aws_project/web-2/earth.html"
   depends_on = [
-    aws_s3_bucket.terraform-aw-team3
+    aws_s3_bucket.terraform-project-22
   ]
 }
-resource "aws_s3_bucket_public_access_block" "terraform-aw-team3" {
-  bucket = aws_s3_bucket.terraform-aw-team3.id
+resource "aws_s3_bucket_public_access_block" "terraform-project-22" {
+  bucket = aws_s3_bucket.terraform-project-22.id
 
   block_public_acls   = false
   block_public_policy = false
