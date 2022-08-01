@@ -241,8 +241,8 @@ resource "aws_instance" "defaul" {
     sudo yum install -y httpd
     sudo chmod 777 /var/www/html
     cd /var/www/html
-    sudo wget https://terraform-aw-team3.s3.amazonaws.com/index-default.jpg
-    sudo wget https://terraform-aw-team3.s3.amazonaws.com/index-default.html
+    sudo wget https://terraform-project-22.s3.amazonaws.com/index-default.jpg
+    sudo wget https://terraform-project-22.s3.amazonaws.com/index-default.html
     mv index-default.html index.html
     sudo systemctl enable httpd --now
   EOF
@@ -299,7 +299,7 @@ resource "aws_lb" "app-load-balancer" {
 
   }
   access_logs {
-    bucket  = aws_s3_bucket.terraform-aw-team3.bucket
+    bucket  = aws_s3_bucket.terraform-project-22.bucket
     prefix  = "prdx_lb"
     enabled = true
   }
